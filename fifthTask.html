@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="task">
+            <h1>Здание 5</h1>
+            <p class="taskText">
+                Создайте программу, в которой мы храним список всех пользователей (логин и пароль) в виде массива. 
+                При запуске браузера у юзера запрашивают логин и пароль. 
+                Если существует такой пользователь в массиве, то юзер должен получить сообщение в браузере: 
+                "Welcome, you are authenticated", но  если такого пользователя не существует, 
+                то выведите сообщение: "User not found".
+            </p>
+        </div>
+        <div class="mainInput">
+            <div class="inputs">
+                <input type="text" id="firstInputText" placeholder="Login">
+                <input type="text" id="secondInputText" placeholder="Password">
+            </div>
+            <div class="mainButton">
+                <button class="button">
+                    Отправить
+                </button>
+            </div>
+            <div class="mainOutput">
+                <p class="output">
+                    Вы не ввели значения
+                </p>
+            </div>
+            <div class="nextTask">
+                <a href="./fourthTask.html" class="prevTask">Предыдущее задание 4...</a>
+                <a href="./sixthTask.html" class="nextLink">Следующее задание 6...</a>
+                <p style="font-size:13px">Мой массив: <br>{"login":"ilyas", "password": "qwerty"},
+                    <br>{"login":"eldar", "password": "qqqqq"},
+                    <br>{"login":"assylkhan", "password": "qweqwe"},
+                    <br>{"login":"anel", "password": "asdasd"},
+                    <br>{"login":"alibek", "password": "aaaaaa"}</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let output = document.querySelector('.output');
+        let button = document.querySelector('.button');
+        let firstInputValue = document.querySelector('#firstInputText');
+        let secondInputValue = document.querySelector('#secondInputText');
+
+        let users = [
+            {"login":"ilyas", "password": "qwerty"},
+            {"login":"eldar", "password": "qqqqq"},
+            {"login":"assylkhan", "password": "qweqwe"},
+            {"login":"anel", "password": "asdasd"},
+            {"login":"alibek", "password": "aaaaaa"}
+        ];
+        button.addEventListener('click',mainFunction);
+        function mainFunction() {
+            let login = firstInputValue.value;
+            let pass = secondInputValue.value;
+            let prov = false;
+            for (let i = 0; i < users.length; i++) {
+                if (login == users[i]['login'] && pass == users[i]['password']) {
+                    prov = true;
+                    break;
+                }
+            }
+            if (prov) {
+                output.innerHTML = `Добро пожаловать, ${login}, вы авторизовались`;
+            } else {
+                output.innerHTML = "Вы ввели неправильные данные";
+            }
+        };
+    </script>
+</body>
+</html>

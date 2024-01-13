@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="task">
+            <h1>Здание 6</h1>
+            <p class="taskText">
+                Создайте простую программу, в которой мы делаем поиск по автору книги. У меня имеется массив книг, у которых есть такие параметры как:
+                <br>Наименование
+                <br>Автор
+                <br>ISBN
+                <br>Цена
+                <br>Делаем мы поиск по наименованию. Все книги заранее записаны в массив (можете смело добавлять свои любимые книги в произвольном порядке).
+            </p>
+        </div>
+        <div class="mainInput">
+            <div class="inputs">
+                <input type="text" id="firstInputText" placeholder="Author name">
+            </div>
+            <div class="mainButton">
+                <button class="button">
+                    Отправить
+                </button>
+            </div>
+            <div class="mainOutput">
+                <p class="output">
+                    Вы не ввели значения
+                </p>
+            </div>
+            <div class="nextTask">
+                <a href="./fifthTask.html" class="prevTask">Предыдущее задание 5...</a>
+                <p style="font-size:13px">Мой массив: <br>{'name':'Harry Potter and the Philosophers Stones', 
+                    'author':'Joanne Rowling',
+                    'isbn':'1233123',
+                    'cost':'50$'},<br>
+                    {'name': 'Harry Potter and the Chamber of Secrets',
+                    'author': 'Joanne Rowling',
+                    'isbn': '222332',
+                    'cost': '40$'},<br>
+                    {'name': 'Harry Potter and the Prisoner of Azkaban',
+                    'author':'Joanne Rowling',
+                    'isbn': '452323',
+                    'cost': '55$'},<br>
+                    {'name': 'A Brief History of Time',
+                    'author': 'Stephen Hawking',
+                    'isbn': '22222',
+                    'cost':'60$'},<br>
+                    {'name': 'It',
+                    'author': 'Stephen King',
+                    'isbn': '22221',
+                    'cost':'60$'}</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let output = document.querySelector('.output');
+        let button = document.querySelector('.button');
+        let firstInputValue = document.querySelector('#firstInputText');
+
+        let books = [
+            {'name':'Harry Potter and the Philosophers Stones', 
+            'author':'Joanne Rowling',
+            'isbn':'1233123',
+            'cost':'50$'},
+            {'name': 'Harry Potter and the Chamber of Secrets',
+            'author': 'Joanne Rowling',
+            'isbn': '222332',
+            'cost': '40$'},
+            {'name': 'Harry Potter and the Prisoner of Azkaban',
+            'author':'Joanne Rowling',
+            'isbn': '452323',
+            'cost': '55$'},
+            {'name': 'A Brief History of Time',
+            'author': 'Stephen Hawking',
+            'isbn': '22222',
+            'cost':'60$'},
+            {'name': 'It',
+            'author': 'Stephen King',
+            'isbn': '22221',
+            'cost':'60$'}
+        ];
+        button.addEventListener('click',mainFunction);
+        function mainFunction() {
+            let book = firstInputValue.value;
+            let foundBooks = [];
+            for (let i = 0; i < books.length; i++) {
+                if (book === books[i].author) {
+                    foundBooks.push(books[i]);
+                }
+            }
+        
+            if (foundBooks.length > 0) {
+                let booksInfo = foundBooks.map(book => `Название книги: ${book.name}, ISBN: ${book.isbn}, Цена: ${book.cost}`).join('<br>');
+                output.innerHTML = booksInfo;
+            } else {
+                output.innerHTML = "Книги этого автора не найдены";
+            }
+        };
+    </script>
+</body>
+</html>

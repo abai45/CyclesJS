@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+.container {
+    text-align: center;
+}
+.mainInput {
+    margin-top: 20px;
+    text-align: center;
+}
+.mainInput {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.mainButton {
+    margin-top: 20px; 
+}
+.mainButton button {
+    padding: 5px 10px;
+}
+a {
+    text-decoration: none;
+    margin: 10px;
+}
+input {
+    font-size: 16px;
+    padding: 3px 10px;
+}
+p {
+    max-width: 700px;
+}

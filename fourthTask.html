@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="task">
+            <h1>Здание 4</h1>
+            <p class="taskText">
+                Создайте программу, в которой мы сначала вводим число n, 
+                затем n элементов и сохраняем все введенные числа в массив. 
+                Выведите в конце квадраты всех введенных чисел.
+            </p>
+        </div>
+        <div class="mainInput">
+            <div class="inputs">
+                <input type="text" id="inputText" placeholder="Введите длину массива">
+            </div>
+            <div class="mainButton">
+                <button class="button">
+                    Отправить
+                </button>
+            </div>
+            <div class="mainOutput">
+                <p class="output">
+                    Вы не ввели значения
+                </p>
+            </div>
+            <div class="nextTask">
+                <a href="./thirdTask.html" class="prevTask">Предыдущее задание 3...</a>
+                <a href="./fifthTask.html" class="nextLink">Следующее задание 5...</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        let output = document.querySelector('.output');
+        let button = document.querySelector('.button');
+        let inputValue = document.querySelector('#inputText');
+        
+        button.addEventListener('click',mainFunction);
+        function mainFunction() {
+            let numbersArray = [];
+            let n = parseInt(inputValue.value);
+            let sum = 0;
+            for(i = 1; i <= n; i++) {
+                let number = parseInt(prompt(`Введите число номер ${i}`));
+                number= number**2
+                numbersArray.push(number);
+            }
+            output.innerHTML = `${numbersArray}`; 
+        };
+    </script>
+</body>
+</html>
